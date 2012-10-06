@@ -1,0 +1,166 @@
+body {
+    margin-bottom: 60px;
+    
+}
+    
+.pages {
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+.center {    
+    text-align: center;
+}
+
+.dob_dod {
+    margin-top: 10px;
+}
+
+.dob_dod p{
+    line-height: 10px;
+}
+
+.active {
+    background-color: #CCCCCC;
+    padding: 0px 4px;
+}
+
+.hl2 {
+    background-color: yellow;
+}
+
+
+blockquote p {
+   font-size: 100%;
+   
+}
+
+blockquote small {
+    font-size: 100%;    
+    color: green;
+    
+}
+
+.matches {
+    padding: 16px 0;    
+}
+
+.main_quote {
+    margin-top: 20px;    
+    margin-bottom: 40px;    
+}
+
+.main_search {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.main_quote blockquote  {    
+    padding: 40px 0px 25px 0px;
+    font: bold 200% georgia, serif;
+    border: none; 
+    color: #888;    
+} 
+
+.main_quote small {     
+    padding-top: 20px;
+    font-size: 70%;
+    text-align: right;
+}
+
+.small_quote {
+    padding-top: 40px;
+}
+
+.small_quote blockquote  {        
+    font: 100% georgia, serif;
+    border: none; 
+    color: #999  
+     
+} 
+
+.small_quote small {         
+    font-size: 96%;
+    text-align: right;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: left;
+    padding: 2px 10px;
+}
+
+th {
+    padding-bottom: 8px;
+}
+
+thead {
+    text-align: center;
+}
+h1 {
+    font-family: georgia;
+    }
+
+h1.title {   
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+blockquote p {
+    font-family: georgia, serif, arial, helvetica, verdana;
+    font-size: 120%;      
+}
+
+.natcat {
+    color: green;
+}
+
+.main_search {
+    padding-bottom: 30px;
+}
+
+.word {
+    color: #990000;
+}
+
+h2.adv {
+    color: #DD4B39;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+a.adv {
+    font-size: 84%;
+}
+
+.nav_adv {
+    font-size: 80%;    
+    line-height: 10px;
+}
+
+label {
+    padding-top: 6px;
+    float: left;
+    width: 180px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.about {
+    margin-top: 50px;
+}
+.copy {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.dod a{
+    color: #993333;
+    
+}
+
