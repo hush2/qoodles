@@ -21,8 +21,8 @@ $sections = array(
     'controller_info' => false,         
 );
 
-    $ci = get_instance();
-    $ci->output->set_profiler_sections($sections);
+$ci = get_instance();
+$ci->output->set_profiler_sections($sections);
 
 
 /* End of file profiler.php */

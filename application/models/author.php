@@ -4,7 +4,6 @@
 
 class Author extends CI_Model
 {
-
     // Find all names from their last name initial.
     function find_group($ini, $start, $limit)
     {
@@ -74,7 +73,7 @@ class Author extends CI_Model
 
     function find_dob_yr($year)
     {
-        // Raw sql since CI's active record adds unnecessary backtick on ORDER_BY.
+        // Use raw sql since CI's active record adds unnecessary backtick on ORDER_BY.
         // http://stackoverflow.com/questions/9563532/
 
         // ORDER_BY clause orders the month as strings in ASC order
@@ -106,7 +105,7 @@ WHERE dod_yr = " . $this->db->escape($year) .
                         ->result();
     }
 
-    // Search for Nationality + Category (ex. American Musician)
+    // Search for Nationality + Category (ex: American Musician)
     function find_natcat($nat, $cat, $count=false)
     {
         return $this->db->select('name, nat, cat, dob_yr')
