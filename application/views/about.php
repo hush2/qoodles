@@ -6,7 +6,6 @@
         <tr><td>Total Categories:</td><td><?= $cats ?></td></tr>
     </table>
     <p class='copy'>
-    Copyright &copy; 2012 hush2.
-    Send your comments &amp; suggestions to <a href='mailto:hushywushy@gmail.com?subject=qoodles'>hushywushy@gmail.com</a>.
+    Copyright &copy; 2012 <a href='mailto:hushywushy@gmail.com?subject=qoodles'>hush2</a>.
     </p>
 </div>
