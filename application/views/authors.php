@@ -14,7 +14,25 @@
     <?php foreach ($auths as $author): ?>
         <tr>
             <td><?= anchor("/search/author/{$author->name}", $author->name) ?></td>
-            <td><?= anchor("/search/natcat/{$author->nat}/{$author->cat}", "{$author->nat} {$author->cat}", "class='natcat'") ?></td>
+            <?php
+            $link =  $title = ' ';
+            if ($author->nat && $author->cat)
+            {
+                $link  = "natcat/$author->nat/$author->cat";
+                $title = "$author->nat $author->cat";
+            }
+            elseif ($author->nat && !$author->cat)
+            {
+                $link  = "nat/$author->nat";
+                $title = "$author->nat";
+            }
+            elseif (!$author->nat && $author->cat)
+            {
+                $link  = "cat/$author->cat";
+                $title = "$author->cat";
+            }
+            ?>
+            <td><?= anchor("/search/$link", $title, 'class="natcat"') ?></td>
         </tr>
         <?php endforeach ?>
     </table>

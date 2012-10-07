@@ -8,7 +8,7 @@ class Category extends CI_Model
     public function find_all()
     {
         $this->db->cache_on();
-                
+
         return $this->db->select('cat')
                     ->from('cats')
                     //->where('cat !=', '~')
@@ -20,21 +20,31 @@ class Category extends CI_Model
     // Find authors from a certain Category (also called Profession in Navbar).
     public function find_authors($cat, $start, $limit)
     {
-       return $this->db->select('authors.name')
-                   ->from('authors')
-                   ->join('cats', 'authors.cat_id = cats.id')
-                   ->where('cats.cat', $cat)
-                   ->order_by('name')
-                   ->limit($limit, $start)
-                   ->get()
-                   ->result();
+        return $this->db->select('name, ini, nat, cat, dob_md, dob_yr, dob_suf, dod_md, dod_yr, dod_suf')
+                        ->from('authors')
+                        ->join('nats', 'nats.id = authors.nat_id')
+                        ->join('cats', 'cats.id = authors.cat_id')
+                        ->where('cats.cat', $cat)
+                        //->where('nats.nat', $nat)
+                        ->order_by('name')
+                        ->limit($limit, $start)
+                        ->get()
+                        ->result();
+       //return $this->db->select('authors.name')
+                       //->from('authors')
+                       //->join('cats', 'authors.cat_id = cats.id')
+                       //->where('cats.cat', $cat)
+                       //->order_by('name')
+                       //->limit($limit, $start)
+                       //->get()
+                       //->result();
     }
 
     // For pagination.
     public function find_authors_count($cat)
     {
         $this->db->cache_on();
-        
+
         return $this->db->from('cats')
                         ->join('authors', 'authors.cat_id = cats.id')
                         ->where('cat', $cat)

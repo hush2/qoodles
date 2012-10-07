@@ -101,14 +101,15 @@ WHERE dod_yr = " . $this->db->escape($year) .
     }
 
     // Search for Nationality + Category (ex: American Musician)
-    function find_natcat($nat, $cat, $count=false)
+    function find_natcat($nat, $cat, $start, $count)
     {
-        return $this->db->select('name, nat, cat, dob_yr')
+        return $this->db->select('name, nat, cat, dob_md, dob_yr, dob_suf, dod_md, dod_yr, dod_suf')
                         ->from('authors')
                         ->join('nats', 'nats.id = authors.nat_id')
                         ->join('cats', 'cats.id = authors.cat_id')
                         ->where('nat', $nat)
                         ->where('cat', $cat)
+                        ->limit($count, $start)
                         ->get()
                         ->result();
     }
@@ -163,5 +164,8 @@ WHERE dod_yr = " . $this->db->escape($year) .
                         ->get()
                         ->result();
     }
+
+
+
 }
 

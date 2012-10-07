@@ -2,11 +2,11 @@
 
 <div class='row'>
     <table class='span9'>
-        <tr><th>Name</th><th>Nationality</th><th>Date of Birth</th><th>Date of Death</th></tr>
+        <tr><th>Name</th><th>Category</th><th>Date of Birth</th><th>Date of Death</th></tr>
         <?php foreach ($authors as $author): ?>
         <tr>
         <td><?= anchor("/search/author/{$author->name}", $author->name) ?></td>
-        <td class='nat'><?= anchor("/search/nat/{$author->nat}", "$author->nat ") ?></td>
+        <td class='cat'><?= anchor("/search/cat/{$author->cat}", "{$author->cat}", "class='nat'") ?></td>
         <td class='dob'><?= anchor("/search/dob_md/{$author->dob_md}", " {$author->dob_md}") ?><?php echo $author->dob_md && $author->dob_yr ? ',' : '' ?>
             <?= anchor("/search/dob_yr/{$author->dob_yr}", " {$author->dob_yr}") ?>
         </td>

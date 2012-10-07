@@ -30,14 +30,24 @@ class Nationality extends CI_Model
 
     public function find_authors($nat, $start, $limit)
     {
-       return $this->db->select('authors.name, authors.ini')
-                   ->from('authors')
-                   ->join('nats', 'authors.nat_id = nats.id')
-                   ->where('nats.nat', $nat)
-                   ->order_by('name')
-                   ->limit($limit, $start)
-                   ->get()
-                   ->result();
+        return $this->db->select('name, ini, nat, cat, dob_md, dob_yr, dob_suf, dod_md, dod_yr, dod_suf')
+                        ->from('authors')
+                        ->join('nats', 'nats.id = authors.nat_id')
+                        ->join('cats', 'cats.id = authors.cat_id')
+                        ->where('nats.nat', $nat)
+                        ->order_by('name')
+                        ->limit($limit, $start)
+                        ->get()
+                        ->result();
+
+       //return $this->db->select('authors.name, authors.ini')
+                   //->from('authors')
+                   //->join('nats', 'authors.nat_id = nats.id')
+                   //->where('nats.nat', $nat)
+                   //->order_by('name')
+                   //->limit($limit, $start)
+                   //->get()
+                   //->result();
     }
 
     // For pagination.

@@ -19,7 +19,7 @@ class Search extends MY_Controller
         $this->load_view('authors', $data);
     }
 
-    public function author($name = 'Buddha')
+    public function author($name='Dalai Lama')
     {
         $quotes = $this->author->find_quotes(urldecode($name));
 
@@ -67,66 +67,55 @@ class Search extends MY_Controller
     public function cat($cat = 'Actor', $page = 0, $per_page = 160)
     {
         $cat             = urldecode($cat);
-        $authors         = $this->category->find_authors($cat, $page, $per_page);
+        $data['authors'] = $this->category->find_authors($cat, $page, $per_page);
         $data['pages']   = $this->pagination->create(
                                         '/search/cat/' . $cat,
                                         $this->category->find_authors_count($cat),
                                         $per_page);
-        $data['authors'] = $this->pagination->partition($authors, 4);
-        $data['title']   = $cat;
+        //$data['authors'] = $this->pagination->partition($authors, 4);
 
+        $data['title']   = $cat;
         $this->load_view('cat', $data);
     }
 
     public function nats()
-    {        
+    {
         $nationalities = $this->nationality->find_all();
         $data['nationalities'] = $this->pagination->partition($nationalities, 4);
         $data['title'] = 'Nationalities';
-        $this->load_view('nats', $data);        
+        $this->load_view('nats', $data);
     }
 
-    public function nat($nat = '', $page = 0, $per_page = 160)
+    public function nat($nat = 'Tibetan', $start=0, $count=100)
     {
         $nat = urldecode($nat);
 
-        $authors         = $this->nationality->find_authors($nat, $page, $per_page);
-        $data['authors'] = $this->pagination->partition($authors, 4);
+        $data['authors'] = $this->nationality->find_authors($nat, $start, $count);
         $data['pages']   = $this->pagination->create(
                                 '/search/nat/'. $nat,
                                 $this->nationality->find_authors_count($nat),
-                                $per_page);
+                                $count);
         $data['nat']     = $nat;
         $data['title']   = $nat;
 
-        // Use cat since it's the same template.
-        $this->load_view('cat', $data);
+        $this->load_view('nat', $data);
     }
 
-    public function natcat($nat='~', $cat='~')
+    public function natcat($nat='Tibetan', $cat='Leader', $start=0, $count=100)
     {
         $nat = urldecode($nat);
         $cat = urldecode($cat);
 
-        if ($cat == '~') {
-            return $this->nat($nat);
-        }
-
-        if ($nat == '~') {
-            return $this->cat($cat);
-        }
-
-        $authors = $this->author->find_natcat($nat, $cat);
-
+        $data['authors'] = $this->author->find_natcat($nat, $cat, $start, $count);
+        $data['pages']   = $this->pagination->create(
+                                "/search/natcat/$nat/$cat/",
+                                $this->author->find_natcat_count($nat, $cat),
+                                $count, 5);  // 5 = uri segments...
         $data['title'] = "$nat $cat";
-        $data['authors'] = $this->pagination->partition($authors, 4);
-
-        // Use cat since it's the same template.
-        $this->load_view('cat', $data);
-
+        $this->load_view('natcat', $data);
     }
 
-    public function dob_yr($year = '1900')
+    public function dob_yr($year='1900')
     {
         $data['authors'] = $this->author->find_dob_yr($year);
         $data['title'] = "Born in $year";
@@ -135,7 +124,7 @@ class Search extends MY_Controller
     }
 
     // dob_md = Date of birth (Month Day)
-    public function dob_md($md = '')
+    public function dob_md($md='December 25')
     {
         $md = $md ? urldecode($md) : date('F j');
 
@@ -145,7 +134,7 @@ class Search extends MY_Controller
         $this->load_view('dob_md', $data);
     }
 
-    public function dod_yr($year = '1900')
+    public function dod_yr($year='1945')
     {
         $data['authors'] = $this->author->find_dod_yr($year);
         $data['title']   = "Died in $year";
@@ -153,7 +142,7 @@ class Search extends MY_Controller
         $this->load_view('dod_yr', $data);
     }
 
-    public function dod_md($md = '')
+    public function dod_md($md='February 14')
     {
         $md = $md ? urldecode($md) : date('F j');
 

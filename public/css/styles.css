@@ -1,14 +1,15 @@
 body {
-    margin-bottom: 60px;
+    margin-bottom : 60px;
 }
 
 .pages {
-    margin-bottom: 14px;
-    margin-top: 14px;
+    margin-bottom : 14px;
+    margin-top : 14px;
+    color: red;
 }
 
 .center {
-    text-align: center;
+    text-align : center;
 }
 
 .dob_dod {
@@ -17,15 +18,6 @@ body {
 
 .dob_dod p {
     line-height: 10px;
-}
-
-.active {
-    background-color: #CCCCCC;
-    padding: 0px 4px;
-}
-
-.hl2 {
-    background-color: yellow;
 }
 
 
@@ -139,22 +131,25 @@ label {
     width: 180px;
 }
 
-.error {
-    color: #ff0000;
-}
-
 .about {
     margin-top: 50px;
 }
+
 .copy {
-    margin-top: 40px;
-    text-align: center;
+    margin-top: 20px;
+}
+.dob a {
+    color: #666699;
+}
+.dod a {
+    color: #666666;
+}
+.nat a, .cat a {
+    color: green;
 }
 
-.dod a{
-    color: #993333;
+.about table {
+    width: 175px;
 }
 
-a {
- text-decoration: none;
-}
+
