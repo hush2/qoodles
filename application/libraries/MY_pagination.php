@@ -3,10 +3,6 @@
 
 class MY_Pagination extends CI_Pagination
 {
-    public function __construct()
-    {
-        die('wtf');
-    }
     public function create($url, $total_rows, $per_page, $uri_segment=4)
     {
         $this->initialize(array(
