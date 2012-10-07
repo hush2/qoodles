@@ -4,13 +4,6 @@
 
 class Advanced_Search extends MY_Controller
 {
-
-    public function __construct()
-    {
-        parent::__construct();
-        //$this->output->enable_profiler(true);
-    }
-
     public function index()
     {
         $this->load_view('advanced_search');
@@ -41,6 +34,8 @@ class Advanced_Search extends MY_Controller
 
     public function quotes($page = 0, $per_page = 50)
     {
+        echo 1111;
+        die;
         $data = array();
 
         if ($this->input->post('submit')) {

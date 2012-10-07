@@ -1,6 +1,3 @@
 # Qoodles #
 
-
-
-
 ## Credits ##
