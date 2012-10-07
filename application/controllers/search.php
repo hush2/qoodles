@@ -4,11 +4,6 @@
 
 class Search extends MY_Controller
 {
-    public function index()
-    {
-        $this->load_view('search_form');
-    }
-
     public function authors($group='A', $page=0, $per_page=160)
     {
         $data['pages'] = $this->pagination->create(

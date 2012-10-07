@@ -7,7 +7,7 @@ class Category extends CI_Model
     // Return all categories. Limit not needed since categories are few.
     public function find_all()
     {
-        #$this->db->cache_on();
+        //$this->db->cache_on();
                 
         return $this->db->select('cat')
                     ->from('cats')
@@ -33,7 +33,7 @@ class Category extends CI_Model
     // For pagination.
     public function find_authors_count($cat)
     {
-        #$this->db->cache_on();
+        //$this->db->cache_on();
         
         return $this->db->from('cats')
                         ->join('authors', 'authors.cat_id = cats.id')
