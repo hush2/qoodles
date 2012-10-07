@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// Copyright (C) 2012 hush2 <hushywushy@gmail.com>
+// (C) 2012 hush2 <hushywushy@gmail.com>
 
 class Author extends CI_Model
 {

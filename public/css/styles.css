@@ -1,6 +1,5 @@
 body {
-    margin-bottom: 60px;
-    
+    margin-bottom: 60px;    
 }
     
 .pages {
@@ -16,7 +15,7 @@ body {
     margin-top: 10px;
 }
 
-.dob_dod p{
+.dob_dod p {
     line-height: 10px;
 }
 
@@ -160,7 +159,9 @@ label {
 }
 
 .dod a{
-    color: #993333;
-    
+    color: #993333;    
 }
 
+a {
+ text-decoration: none;
+}

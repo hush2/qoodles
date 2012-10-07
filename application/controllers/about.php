@@ -8,10 +8,8 @@ class About extends MY_Controller
     {
         $data['quotes']  = number_format($this->db->count_all('quotes'));
         $data['authors'] = number_format($this->db->count_all('authors'));
-        $data['nats']    = number_format($this->db->count_all('nats') - 1);
+        $data['nats']    = number_format($this->db->count_all('nats') - 1); // skip empty
         $data['cats']    = number_format($this->db->count_all('cats') - 1);
-
-        $data['view']    = 'about';
 
         $this->load_view('about', $data);
      }

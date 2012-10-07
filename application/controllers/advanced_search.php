@@ -15,16 +15,16 @@ class Advanced_Search extends MY_Controller
         {
             $post = $this->input->post();
             $this->session->set_userdata($post);
-        } else {
+        }
+        else
+        {
             $post = $this->session->userdata;
         }
 
         $authors         = $this->author->find_names($post, $page, $per_page);
         $total_authors   = $this->author->find_names($post);
         $data['pages']   = $this->pagination->create('/advanced_search/authors/',
-                                             $total_authors,
-                                             $per_page,
-                                             3);
+                                $total_authors, $per_page, 3);
         $data['title']   = "Found " . number_format($total_authors) . ' authors.';
         $data['authors'] = $authors;
 
@@ -48,7 +48,9 @@ class Advanced_Search extends MY_Controller
                                 'kw_any'   => $kw_any,
                                 'kw_none'  => $kw_none,
             ));
-        } else {
+        }
+        else
+        {
             $kw_all   = $this->session->userdata('kw_all');
             $kw_exact = $this->session->userdata('kw_exact');
             $kw_any   = $this->session->userdata('kw_any');
@@ -57,21 +59,27 @@ class Advanced_Search extends MY_Controller
 
         $text = '';
 
-        if (!empty($kw_all)) {
+        if (!empty($kw_all))
+        {
             $kw_all = explode(' ', $kw_all);
-            foreach ($kw_all as $kw) {
+            foreach ($kw_all as $kw)
+            {
                 $text .= "+$kw ";
             }
         }
-        if (!empty($kw_exact)) {
+        if (!empty($kw_exact))
+        {
             $text .= "\"$kw_exact\" ";
         }
-        if (!empty($kw_any)) {
+        if (!empty($kw_any))
+        {
             $text .= "$kw_any ";
         }
-        if (!empty($kw_none)) {
+        if (!empty($kw_none))
+        {
             $kw_none = explode(' ', $kw_none);
-            foreach ($kw_none as $kw) {
+            foreach ($kw_none as $kw)
+            {
                 $text .= "-$kw ";
             }
         }

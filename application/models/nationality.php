@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// Copyright (C) 2012 hush2 <hushywushy@gmail.com>
+// (C) 2012 hush2 <hushywushy@gmail.com>
 
 class Nationality extends CI_Model
 {
@@ -18,7 +18,7 @@ class Nationality extends CI_Model
     // Return all Nationalities.
     public function find_all()
     {
-        //$this->db->cache_on();
+        $this->db->cache_on();
         
         return $this->db->select('nat')
                     ->from('nats')
@@ -43,7 +43,7 @@ class Nationality extends CI_Model
     // For pagination.
     public function find_authors_count($nat)
     {
-        //$this->db->cache_on();
+        $this->db->cache_on();
         
         return $this->db->from('nats')
                         ->join('authors', 'authors.nat_id = nats.id')
