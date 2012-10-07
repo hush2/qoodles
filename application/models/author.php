@@ -28,7 +28,7 @@ class Author extends CI_Model
 
     function find_quotes($name)
     {
-        return $this->db->select('quote, name, cat, nat, dob_md, dob_yr, dob_suf, 
+        return $this->db->select('quote, name, cat, nat, dob_md, dob_yr, dob_suf,
                                   dod_md, dod_yr, dod_suf')
                         ->from('quotes')
                         ->join('authors', 'authors.id = quotes.author_id')
@@ -51,8 +51,7 @@ class Author extends CI_Model
         if (!empty($limit)) {
             $this->db->limit($limit);
         }
-        return $this->db->get()
-                        ->result();
+        return $this->db->get()->result();
     }
 
     function find_dod_md($md, $limit = '')
@@ -67,18 +66,16 @@ class Author extends CI_Model
         if (!empty($limit)) {
             $this->db->limit($limit);
         }
-        return $this->db->get()
-                        ->result();
+        return $this->db->get()->result();
     }
 
+    // Use raw sql since CI's active record adds unnecessary backtick on ORDER_BY.
+    // http://stackoverflow.com/questions/9563532/
+    //
+    // ORDER_BY clause orders the month as strings in ASC order
+    // (so January, February, ... December).
     function find_dob_yr($year)
     {
-        // Use raw sql since CI's active record adds unnecessary backtick on ORDER_BY.
-        // http://stackoverflow.com/questions/9563532/
-
-        // ORDER_BY clause orders the month as strings in ASC order
-        // (so January, February, ... December).
-
         $sql = "
 SELECT name, nat, cat, dob_md
 FROM authors
@@ -87,8 +84,7 @@ JOIN cats ON cats.id = authors.cat_id
 WHERE dob_yr = " . $this->db->escape($year) .
 "ORDER BY str_to_date(dob_md, '%M %e')";     // ...
 
-        return $this->db->query($sql)
-                        ->result();
+        return $this->db->query($sql)->result();
     }
 
     function find_dod_yr($year)
@@ -101,8 +97,7 @@ JOIN cats ON cats.id = authors.cat_id
 WHERE dod_yr = " . $this->db->escape($year) .
 " ORDER BY str_to_date(dod_md, '%M %e')";     // ...
 
-        return $this->db->query($sql)
-                        ->result();
+        return $this->db->query($sql)->result();
     }
 
     // Search for Nationality + Category (ex: American Musician)
@@ -132,7 +127,7 @@ WHERE dod_yr = " . $this->db->escape($year) .
     // This is called from Advanced Search.
     function find_names($kw, $start = 0, $limit = 0)
     {
-        $this->db->select('name, ini, nat, cat, dob_md, dob_yr, dob_suf, 
+        $this->db->select('name, ini, nat, cat, dob_md, dob_yr, dob_suf,
                            dod_md, dod_yr, dod_suf')
                  ->from('authors')
                  ->join('nats', 'nats.id = authors.nat_id')
@@ -160,7 +155,7 @@ WHERE dod_yr = " . $this->db->escape($year) .
         if (!empty($kw['dod_yr'])) {
             $this->db->where('dod_yr', $kw['dod_yr']);
         }
-        if ($start == 0 && $limit == 0) {
+        if ($start === 0 && $limit === 0) {
             return $this->db->count_all_results();
         }
         return $this->db->order_by('ini')

@@ -1,13 +1,13 @@
 body {
-    margin-bottom: 60px;    
+    margin-bottom: 60px;
 }
-    
+
 .pages {
     margin-bottom: 14px;
     margin-top: 14px;
 }
 
-.center {    
+.center {
     text-align: center;
 }
 
@@ -31,22 +31,22 @@ body {
 
 blockquote p {
    font-size: 100%;
-   
+
 }
 
 blockquote small {
-    font-size: 100%;    
+    font-size: 100%;
     color: green;
-    
+
 }
 
 .matches {
-    padding: 16px 0;    
+    padding: 16px 0;
 }
 
 .main_quote {
-    margin-top: 20px;    
-    margin-bottom: 40px;    
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .main_search {
@@ -54,14 +54,14 @@ blockquote small {
     margin-top: 20px;
 }
 
-.main_quote blockquote  {    
+.main_quote blockquote  {
     padding: 40px 0px 25px 0px;
     font: bold 200% georgia, serif;
-    border: none; 
-    color: #888;    
-} 
+    border: none;
+    color: #888;
+}
 
-.main_quote small {     
+.main_quote small {
     padding-top: 20px;
     font-size: 70%;
     text-align: right;
@@ -71,46 +71,39 @@ blockquote small {
     padding-top: 40px;
 }
 
-.small_quote blockquote  {        
+.small_quote blockquote  {
     font: 100% georgia, serif;
-    border: none; 
-    color: #999  
-     
-} 
+    border: none;
+    color: #999
 
-.small_quote small {         
+}
+
+.small_quote small {
     font-size: 96%;
     text-align: right;
 }
 
 table {
     border-collapse: collapse;
-}
-
-td {
     text-align: left;
-    padding: 2px 10px;
 }
 
 th {
     padding-bottom: 8px;
 }
 
-thead {
-    text-align: center;
-}
 h1 {
     font-family: georgia;
-    }
+}
 
-h1.title {   
+h1.title {
     text-align: center;
     padding-bottom: 20px;
 }
 
 blockquote p {
     font-family: georgia, serif, arial, helvetica, verdana;
-    font-size: 120%;      
+    font-size: 120%;
 }
 
 .natcat {
@@ -136,7 +129,7 @@ a.adv {
 }
 
 .nav_adv {
-    font-size: 80%;    
+    font-size: 80%;
     line-height: 10px;
 }
 
@@ -159,7 +152,7 @@ label {
 }
 
 .dod a{
-    color: #993333;    
+    color: #993333;
 }
 
 a {

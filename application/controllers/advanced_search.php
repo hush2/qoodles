@@ -25,7 +25,7 @@ class Advanced_Search extends MY_Controller
         $total_authors   = $this->author->find_names($post);
         $data['pages']   = $this->pagination->create('/advanced_search/authors/',
                                 $total_authors, $per_page, 3);
-        $data['title']   = "Found " . number_format($total_authors) . ' authors.';
+        $data['title']   = "Found " . number_format($total_authors) . ' author(s).';
         $data['authors'] = $authors;
 
         $this->load_view('result_authors', $data);
