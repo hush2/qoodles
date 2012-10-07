@@ -1,4 +1,5 @@
 <?php
+
 // Copyright (C) 2012 hush2 <hushywushy@gmail.com>
 
 class MY_Pagination extends CI_Pagination
