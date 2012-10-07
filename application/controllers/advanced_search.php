@@ -90,10 +90,8 @@ class Advanced_Search extends MY_Controller
         $data['title']  = $matches
                           ? "Found " . number_format($matches) . " matches for $match_text"
                           : "No match found for $match_text";
-        $data['pages']  = $this->pagination->create("/advanced_search/quotes/",
-                                           $matches,
-                                           $per_page,
-                                           3);
+        $data['pages']  = $this->pagination->create(
+                            '/advanced_search/quotes/', $matches, $per_page, 3);
         $data['text']   = $text;
 
         $this->load_view('result_quotes', $data);
