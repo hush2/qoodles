@@ -4,14 +4,14 @@
 
 class Search extends MY_Controller
 {
-    public function authors($group='A', $page=0, $per_page=160)
+    public function authors($group='A', $start=0, $count=100)
     {
         $data['pages'] = $this->pagination->create(
                                 '/search/authors/' . $group,
                                 $this->author->find_group_count($group),
-                                $per_page);
+                                $count);
 
-        $authors = $this->author->find_group($group, $page, $per_page);
+        $authors = $this->author->find_group($group, $start, $count);
 
         $data['authors'] = $this->pagination->partition($authors, 2);
         $data['group']   = $group;
@@ -19,7 +19,7 @@ class Search extends MY_Controller
         $this->load_view('authors', $data);
     }
 
-    public function author($name='Dalai Lama')
+    public function author($name='Bruce Lee')
     {
         $quotes = $this->author->find_quotes(urldecode($name));
 
@@ -49,7 +49,7 @@ class Search extends MY_Controller
         $this->load_view('author', $data);
     }
 
-    public function random($length = '', $count = 20)
+    public function random($length='average', $count=20)
     {
         $data['quotes'] = $this->quote->find_random($length, $count);
         $data['title']  = 'Random Quotes';
@@ -57,24 +57,23 @@ class Search extends MY_Controller
         $this->load_view('random', $data);
     }
 
-    public function cats($cat = '')
+    public function cats($cat='Actor')
     {
-        $data['categories']  = $this->pagination->partition($this->category->find_all($cat), 4);
+        $cats = $this->category->find_all($cat);
+        $data['cats']  = $this->pagination->partition($cats, 4);
         $data['title'] = 'Professions';
         $this->load_view('cats', $data);
     }
 
-    public function cat($cat = 'Actor', $page = 0, $per_page = 160)
+    public function cat($cat='Actor', $start=0, $count=160)
     {
-        $cat             = urldecode($cat);
-        $data['authors'] = $this->category->find_authors($cat, $page, $per_page);
-        $data['pages']   = $this->pagination->create(
-                                        '/search/cat/' . $cat,
+        $cat = urldecode($cat);
+        $data['authors'] = $this->category->find_authors($cat, $start, $count);
+        $data['pages']  = $this->pagination->create(
+                                        "/search/cat/$cat",
                                         $this->category->find_authors_count($cat),
-                                        $per_page);
-        //$data['authors'] = $this->pagination->partition($authors, 4);
-
-        $data['title']   = $cat;
+                                        $count);
+        $data['title']  = $cat;
         $this->load_view('cat', $data);
     }
 
@@ -86,7 +85,7 @@ class Search extends MY_Controller
         $this->load_view('nats', $data);
     }
 
-    public function nat($nat = 'Tibetan', $start=0, $count=100)
+    public function nat($nat='Tibetan', $start=0, $count=100)
     {
         $nat = urldecode($nat);
 

@@ -1,7 +1,7 @@
 <div class='row'>
-    <?php foreach($categories as $cats): ?>
+    <?php foreach($cats as $categories): ?>
     <div class='span2'>
-        <?php foreach($cats as $cat): ?>
+        <?php foreach($categories as $cat): ?>
         <?= anchor("/search/cat/{$cat->cat}", $cat->cat) ?><br/>
         <?php endforeach ?>
     </div>

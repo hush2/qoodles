@@ -4,14 +4,14 @@
 
 class Category extends CI_Model
 {
-    // Return all categories. Limit not needed since categories are few.
+    // Return all categories.
     public function find_all()
     {
-        $this->db->cache_on();
+        //$this->db->cache_on();
 
         return $this->db->select('cat')
                     ->from('cats')
-                    //->where('cat !=', '~')
+                    ->where("cat != ''")    // Skip blank category
                     ->order_by('cat')
                     ->get()
                     ->result();
@@ -20,24 +20,15 @@ class Category extends CI_Model
     // Find authors from a certain Category (also called Profession in Navbar).
     public function find_authors($cat, $start, $limit)
     {
-        return $this->db->select('name, ini, nat, cat, dob_md, dob_yr, dob_suf, dod_md, dod_yr, dod_suf')
+        return $this->db->select('name, nat, cat, dob_md, dob_yr, dob_suf, dod_md, dod_yr, dod_suf')
                         ->from('authors')
                         ->join('nats', 'nats.id = authors.nat_id')
                         ->join('cats', 'cats.id = authors.cat_id')
                         ->where('cats.cat', $cat)
-                        //->where('nats.nat', $nat)
                         ->order_by('name')
                         ->limit($limit, $start)
                         ->get()
                         ->result();
-       //return $this->db->select('authors.name')
-                       //->from('authors')
-                       //->join('cats', 'authors.cat_id = cats.id')
-                       //->where('cats.cat', $cat)
-                       //->order_by('name')
-                       //->limit($limit, $start)
-                       //->get()
-                       //->result();
     }
 
     // For pagination.
