@@ -3,7 +3,7 @@
 
 class MY_Pagination extends CI_Pagination
 {
-    function create($url, $total_rows, $per_page, $uri_segment=4)
+    public function create($url, $total_rows, $per_page, $uri_segment=4)
     {
         $this->initialize(array(
                 'base_url'    => site_url($url),
@@ -16,7 +16,7 @@ class MY_Pagination extends CI_Pagination
     }
 
     // http://php.net/manual/en/function.array-chunk.php
-    function partition($list, $p)
+    public function partition($list, $p)
     {
         $listlen = count($list);
         $partlen = floor($listlen / $p);

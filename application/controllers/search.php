@@ -79,8 +79,7 @@ class Search extends MY_Controller
     }
 
     public function nats()
-    {
-        $this->load->library('pagination');
+    {        
         $nationalities = $this->nationality->find_all();
         $data['nationalities'] = $this->pagination->partition($nationalities, 4);
         $data['title'] = 'Nationalities';
