@@ -38,28 +38,34 @@ class Author extends CI_Model
                         ->result();
     }
 
-    function find_dob_md($md)
+    function find_dob_md($md, $limit=null)
     {
-        return $this->db->select('name, nat, cat, dob_yr')
-                        ->from('authors')
-                        ->join('nats', 'nats.id = authors.nat_id')
-                        ->join('cats', 'cats.id = authors.cat_id')
-                        ->where('dob_md', $md)
-                        ->order_by('dob_yr')
-                        ->get()
-                        ->result();
+        $this->db->select('name, nat, cat, dob_yr')
+                 ->from('authors')
+                 ->join('nats', 'nats.id = authors.nat_id')
+                 ->join('cats', 'cats.id = authors.cat_id')
+                 ->where('dob_md', $md)
+                 ->order_by('dob_yr');
+        if ($limit)
+        {
+            $this->db->limit($limit);
+        }
+        return $this->db->get()->result();
     }
 
-    function find_dod_md($md)
+    function find_dod_md($md, $limit=null)
     {
-        return $this->db->select('name, nat, cat, dod_yr')
-                        ->from('authors')
-                        ->join('nats', 'nats.id = authors.nat_id')
-                        ->join('cats', 'cats.id = authors.cat_id')
-                        ->where('dod_md', $md)
-                        ->order_by('dod_yr')
-                        ->get()
-                        ->result();
+        $this->db->select('name, nat, cat, dod_yr')
+                 ->from('authors')
+                 ->join('nats', 'nats.id = authors.nat_id')
+                 ->join('cats', 'cats.id = authors.cat_id')
+                 ->where('dod_md', $md)
+                 ->order_by('dod_yr');
+        if ($limit)
+        {
+            $this->db->limit($limit);
+        }
+        return $this->db->get()->result();
     }
 
     function find_dob_yr($year)
