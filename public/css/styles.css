@@ -21,17 +21,6 @@ body {
 }
 
 
-blockquote p {
-   font-size: 100%;
-
-}
-
-blockquote small {
-    font-size: 100%;
-    color: green;
-
-}
-
 .matches {
     padding: 16px 0;
 }
@@ -48,7 +37,7 @@ blockquote small {
 
 .main_quote blockquote  {
     padding: 40px 0px 25px 0px;
-    font: bold 200% georgia, serif;
+    font: bold 180% georgia, serif;
     border: none;
     color: #888;
 }
@@ -93,9 +82,8 @@ h1.title {
     padding-bottom: 20px;
 }
 
-blockquote p {
+blockquote .quote {
     font-family: georgia, serif, arial, helvetica, verdana;
-    font-size: 120%;
 }
 
 .natcat {
@@ -152,4 +140,10 @@ label {
     width: 175px;
 }
 
+.active {
+    background-color: #ddd;
+}
 
+blockquote small {
+    font-size: 80%;
+}

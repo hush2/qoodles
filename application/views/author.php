@@ -7,13 +7,13 @@
         <? endif ?>
         <? if (!empty($dod)): ?>
             <p>Died: <?= $dod ?></p>
-        <? endif ?>        
+        <? endif ?>
     </div>
     <br/>
 </div>
 
 <div class="row">
-    <div class="span8 ">
+    <div class="span9">
         <?php foreach ($quotes as $quote): ?>
         <blockquote><p> <?= $quote->quote ?></blockquote><p>
         <?php endforeach ?>
