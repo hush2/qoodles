@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-// MYSQL_XXXX are PHPFog env variables. 
+// MYSQL_* are PHPFog env variables. 
 $db['default']['hostname'] = getenv('MYSQL_DB_HOST')  ?: 'localhost';
 $db['default']['username'] = getenv('MYSQL_USERNAME') ?: 'root' ;
 $db['default']['password'] = getenv('MYSQL_PASSWORD') ?: 'beer' ;
-$db['default']['database'] = getenv('MYSQL_DB_NAME')  ?: 'qoodles_quotations';
+$db['default']['database'] = getenv('MYSQL_DB_NAME')  ?: 'qoodles';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

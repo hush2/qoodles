@@ -20,7 +20,7 @@ class Nationality extends CI_Model
     {
         return $this->db->select('nat')
                     ->from('nats')
-                    //->where('nat !=', '~')
+                    ->where('nat !=', ' ')  // Skip blank nationality
                     ->order_by('nat')
                     ->get()
                     ->result();
