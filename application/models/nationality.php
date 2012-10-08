@@ -18,8 +18,6 @@ class Nationality extends CI_Model
     // Return all Nationalities.
     public function find_all()
     {
-        $this->db->cache_on();
-        
         return $this->db->select('nat')
                     ->from('nats')
                     //->where('nat !=', '~')
@@ -53,8 +51,6 @@ class Nationality extends CI_Model
     // For pagination.
     public function find_authors_count($nat)
     {
-        $this->db->cache_on();
-        
         return $this->db->from('nats')
                         ->join('authors', 'authors.nat_id = nats.id')
                         ->where('nat', $nat)

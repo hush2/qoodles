@@ -22,7 +22,7 @@ class Quote extends CI_Model
                 break;
 
             default:
-                $where_length = '';  
+                $where_length = ''; 
                 break;
         }
 
@@ -35,10 +35,10 @@ class Quote extends CI_Model
         $sql = "
 SELECT quote, name, cat, nat
 FROM (SELECT quote, author_id
-FROM quotes
-$where_length
-ORDER BY rand()
-LIMIT $count) AS quotes2
+      FROM quotes
+      $where_length
+      ORDER BY rand()
+      LIMIT $count) AS quotes2
 JOIN authors ON authors.id = quotes2.author_id
 JOIN cats ON cats.id = authors.cat_id
 JOIN nats ON nats.id = authors.nat_id";
