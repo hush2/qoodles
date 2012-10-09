@@ -31,7 +31,7 @@ class Advanced_Search extends MY_Controller
         $this->load_view('result_authors', $data);
     }
 
-    public function quotes($page = 0, $per_page = 50)
+    public function quotes($page = 0, $per_page = 25)
     {
         $data = array();
 

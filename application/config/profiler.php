@@ -11,14 +11,13 @@
 |
 */
 
-$sections = array(
-    'benchmarks' => false,
-    'get' => false,
-    'memory_usage' => false,
-    'uri_string' => false,
-    'http_headers' => false,
-    'config' => false,
-    'controller_info' => false,         
+$sections = array('benchmarks'        => FALSE,
+                  'get'               => FALSE,
+                  'memory_usage'      => FALSE,
+                  'uri_string'        => FALSE,
+                  'http_headers'      => FALSE,
+                  'config'            => FALSE,
+                  'controller_info'   => FALSE,
 );
 
 $ci = get_instance();

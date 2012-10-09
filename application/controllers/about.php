@@ -13,5 +13,4 @@ class About extends MY_Controller
 
         $this->load_view('about', $data);
      }
-
 }

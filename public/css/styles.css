@@ -35,9 +35,17 @@ body {
     margin-top: 20px;
 }
 
+blockquote {
+    font-family: georgia, serif, arial, helvetica, verdana;
+}
+
+blockquote small {
+    font-size: 80%;
+}
+
 .main_quote blockquote  {
     padding: 40px 0px 25px 0px;
-    font: bold 180% georgia, serif;
+    font: bold 180%;
     border: none;
     color: #888;
 }
@@ -80,10 +88,6 @@ h1 {
 h1.title {
     text-align: center;
     padding-bottom: 20px;
-}
-
-blockquote .quote {
-    font-family: georgia, serif, arial, helvetica, verdana;
 }
 
 .natcat {
@@ -144,6 +148,3 @@ label {
     background-color: #ddd;
 }
 
-blockquote small {
-    font-size: 80%;
-}

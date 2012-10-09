@@ -9,13 +9,13 @@ class Main extends MY_Controller
         // Get 1 random quote for main title.
         $quote = $this->quote->find_random('average', 1);
         $data['quote'] = $quote[0];
-        
+
         // Get 3 random short quotes for bottom of main page.
         $data['quote_short']  = $this->quote->find_random('short', 3);;
 
         // Get short list of authors who are born or died on the current date.
         $data['authors_born'] = $this->author->find_dob_md(date('F j'), 5);
-        $data['authors_died'] = $this->author->find_dod_md(date('F j'), 5);              
+        $data['authors_died'] = $this->author->find_dod_md(date('F j'), 5);
 
         $this->load_view('main', $data);
     }
