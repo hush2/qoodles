@@ -159,4 +159,3 @@ class Author extends CI_Model
                         ->result();
     }
 }
-

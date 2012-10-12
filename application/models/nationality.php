@@ -37,15 +37,6 @@ class Nationality extends CI_Model
                         ->limit($limit, $start)
                         ->get()
                         ->result();
-
-       //return $this->db->select('authors.name, authors.ini')
-                   //->from('authors')
-                   //->join('nats', 'authors.nat_id = nats.id')
-                   //->where('nats.nat', $nat)
-                   //->order_by('name')
-                   //->limit($limit, $start)
-                   //->get()
-                   //->result();
     }
 
     // For pagination.

@@ -5,7 +5,7 @@ body {
 .pages {
     margin-bottom : 14px;
     margin-top : 14px;
-    color: red;
+    color: #f00;
 }
 
 .center {
@@ -91,7 +91,7 @@ h1.title {
 }
 
 .natcat {
-    color: green;
+    color: #008000;
 }
 
 .main_search {
@@ -137,7 +137,7 @@ label {
     color: #666666;
 }
 .nat a, .cat a {
-    color: green;
+    color: #008000;
 }
 
 .about table {
@@ -147,4 +147,3 @@ label {
 .active {
     background-color: #ddd;
 }
-

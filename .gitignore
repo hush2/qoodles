@@ -1,4 +1,4 @@
 *.bak
 *.zip
-/backup
-/user_guide
+backup
+user_guide
