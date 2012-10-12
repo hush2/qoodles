@@ -72,15 +72,14 @@ JOIN nats ON nats.id = authors.nat_id";
     {
         $text = $this->db->escape($text);        
         return $this->db->select('quotes.quote, authors.name, nats.nat, cats.cat')
-                    ->from('quotes')
-                    ->join('authors', 'authors.id = quotes.author_id')
-                    ->join('nats', 'authors.nat_id = nats.id')
-                    ->join('cats', 'authors.cat_id = cats.id')
-                    ->where("MATCH(quote) AGAINST ($text IN BOOLEAN MODE)", null)
-                    //->order_by('name')
-                    ->limit((int) $limit, (int) $start)
-                    ->get()
-                    ->result();
+                        ->from('quotes')
+                        ->join('authors', 'authors.id = quotes.author_id')
+                        ->join('nats', 'authors.nat_id = nats.id')
+                        ->join('cats', 'authors.cat_id = cats.id')
+                        ->where("MATCH(quote) AGAINST ($text IN BOOLEAN MODE)", NULL)
+                        ->limit($limit, $start)
+                        ->get()
+                        ->result();
     }
 
     // For pagination.

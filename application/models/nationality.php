@@ -20,7 +20,7 @@ class Nationality extends CI_Model
     {
         return $this->db->select('nat')
                     ->from('nats')
-                    ->where('nat !=', ' ')  // Skip blank nationality
+                    ->where('nat !=', '')  // Skip blank nationality
                     ->order_by('nat')
                     ->get()
                     ->result();
@@ -45,6 +45,7 @@ class Nationality extends CI_Model
         return $this->db->from('nats')
                         ->join('authors', 'authors.nat_id = nats.id')
                         ->where('nat', $nat)
+                        ->where('nat !=', '')
                         ->count_all_results();
     }
 

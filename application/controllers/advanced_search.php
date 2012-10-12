@@ -9,7 +9,7 @@ class Advanced_Search extends MY_Controller
         $this->load_view('advanced_search');
     }
 
-    public function authors($page = 0, $per_page = 100)
+    public function authors($start=0, $count=50)
     {
         if ($this->input->post('submit'))
         {
@@ -21,77 +21,81 @@ class Advanced_Search extends MY_Controller
             $post = $this->session->userdata;
         }
 
-        $authors         = $this->author->find_names($post, $page, $per_page);
+        $authors         = $this->author->find_names($post, $start, $count);
         $total_authors   = $this->author->find_names($post);
         $data['pages']   = $this->pagination->create('/advanced_search/authors/',
-                                $total_authors, $per_page, 3);
+                                $total_authors, $count, 3);
         $data['title']   = "Found " . number_format($total_authors) . ' author(s).';
         $data['authors'] = $authors;
 
         $this->load_view('result_authors', $data);
     }
 
-    public function quotes($page = 0, $per_page = 25)
+    public function quotes($start=0, $count=50)
     {
         $data = array();
 
         if ($this->input->post('submit'))
         {
-            $kw_all   = trim($this->input->post('kw_all'));
-            $kw_exact = trim($this->input->post('kw_exact'));
-            $kw_any   = trim($this->input->post('kw_any'));
-            $kw_none  = trim($this->input->post('kw_none'));
+            $all   = trim($this->input->post('all'));
+            $exact = trim($this->input->post('exact'));
+            $any   = trim($this->input->post('any'));
+            $none  = trim($this->input->post('none'));
 
             $this->session->set_userdata(array(
-                                'kw_all'   => $kw_all,
-                                'kw_exact' => $kw_exact,
-                                'kw_any'   => $kw_any,
-                                'kw_none'  => $kw_none,
+                                'all'   => $all,
+                                'exact' => $exact,
+                                'any'   => $any,
+                                'none'  => $none,
             ));
         }
         else
         {
-            $kw_all   = $this->session->userdata('kw_all');
-            $kw_exact = $this->session->userdata('kw_exact');
-            $kw_any   = $this->session->userdata('kw_any');
-            $kw_none  = $this->session->userdata('kw_none');
+            $all   = $this->session->userdata('all');
+            $exact = $this->session->userdata('exact');
+            $any   = $this->session->userdata('any');
+            $none  = $this->session->userdata('none');
         }
 
         $text = '';
 
-        if (!empty($kw_all))
+        if (!empty($all))
         {
-            $kw_all = explode(' ', $kw_all);
-            foreach ($kw_all as $kw)
+            $all = explode(' ', $all);
+            foreach ($all as $word)
             {
-                $text .= "+$kw ";
+                $text .= "+$word ";
             }
         }
-        if (!empty($kw_exact))
+        if (!empty($exact))
         {
-            $text .= "\"$kw_exact\" ";
+            $text .= "\"$exact\" ";
         }
-        if (!empty($kw_any))
+        if (!empty($any))
         {
-            $text .= "$kw_any ";
+            $text .= "$any ";
         }
-        if (!empty($kw_none))
+        if (!empty($none))
         {
-            $kw_none = explode(' ', $kw_none);
-            foreach ($kw_none as $kw)
+            $none = explode(' ', $none);
+            foreach ($none as $word)
             {
-                $text .= "-$kw ";
+                $text .= "-$word ";
             }
         }
-
-        $data['quotes'] = $this->quote->find_quotes($text, $page, $per_page);
+        $text = trim($text);
+        
+        $data['quotes'] = $this->quote->find_quotes($text, $start, $count);
         $matches        = $this->quote->find_quotes_count($text);
+        
         $match_text     = "<span class='word'>$text</span>";
+        
         $data['title']  = $matches
                           ? "Found " . number_format($matches) . " matches for $match_text"
-                          : "No match found for $match_text";
+                          : ($text ? "No match found for $match_text" : 'Nothing to search');
+                          
         $data['pages']  = $this->pagination->create(
-                            '/advanced_search/quotes/', $matches, $per_page, 3);
+                            '/advanced_search/quotes/', $matches, $count, 3);
         $data['text']   = $text;
 
         $this->load_view('result_quotes', $data);

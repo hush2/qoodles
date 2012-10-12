@@ -3,10 +3,10 @@
     <h2 class='adv'>Advanced Search</h2>
 
     <h3>Find quotes with...</h3><br />
-    <p><label>all these words:</label><input type='text' class='span5 search-query' name='kw_all'></p>
-    <p><label>this exact word or phrase:</label> <input type='text' class='span5 search-query' name='kw_exact'></p>
-    <p><label>any of these words:</label><input type='text' class='span5 search-query' name='kw_any'></p>
-    <p><label>none of these words:</label><input type='text' class='span5 search-query' name='kw_none'></p>
+    <p><label>all these words:</label><input type='text' class='span5 search-query' name='all'></p>
+    <p><label>this exact word or phrase:</label> <input type='text' class='span5 search-query' name='exact'></p>
+    <p><label>any of these words:</label><input type='text' class='span5 search-query' name='any'></p>
+    <p><label>none of these words:</label><input type='text' class='span5 search-query' name='none'></p>
     <br/>
     <div class='offset2'>
         <button class='btn btn-primary' name='submit' type='submit' value='Search'><i class='icon-search icon-white'></i> Search</button>

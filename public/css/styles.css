@@ -20,9 +20,18 @@ body {
     line-height: 10px;
 }
 
-
 .matches {
     padding: 16px 0;
+}
+
+blockquote p {
+    font-family: georgia, serif;
+    font-size: 140%;
+}
+
+blockquote small {
+    font-size: 80%;
+    text-align: right;
 }
 
 .main_quote {
@@ -30,22 +39,9 @@ body {
     margin-bottom: 40px;
 }
 
-.main_search {
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-blockquote {
-    font-family: georgia, serif, arial, helvetica, verdana;
-}
-
-blockquote small {
-    font-size: 80%;
-}
-
-.main_quote blockquote  {
+.main_quote blockquote {
     padding: 40px 0px 25px 0px;
-    font: bold 180%;
+    font: 180% bold georgia, serif;
     border: none;
     color: #888;
 }
@@ -53,23 +49,26 @@ blockquote small {
 .main_quote small {
     padding-top: 20px;
     font-size: 70%;
-    text-align: right;
 }
 
 .small_quote {
     padding-top: 40px;
 }
 
-.small_quote blockquote  {
+.small_quote blockquote {
     font: 100% georgia, serif;
     border: none;
     color: #999
-
 }
 
 .small_quote small {
     font-size: 96%;
     text-align: right;
+}
+
+.main_search {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 table {
@@ -99,7 +98,7 @@ h1.title {
 }
 
 .word {
-    color: #990000;
+    color: #CC0000;
 }
 
 h2.adv {

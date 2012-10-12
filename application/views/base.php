@@ -20,7 +20,7 @@
         <li><?= anchor('/search/cats', 'Professions') ?></li>
 
         <?= form_open('/advanced_search/quotes', "class='navbar-search pull-left'") ?>
-            <input name='kw_any' type='text' class='input-medium search-query' placeholder='Quick Search'/>
+            <input name='any' type='text' class='input-medium search-query' placeholder='Quick Search'/>
             <input type='hidden' name='submit' value='submit'/>
         <?= form_close() ?>
 

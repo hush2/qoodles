@@ -9,7 +9,7 @@ class Category extends CI_Model
     {
         return $this->db->select('cat')
                     ->from('cats')
-                    ->where('cat !=', ' ')  // Skip blank category
+                    ->where('cat !=', '')  // Skip blank category
                     ->order_by('cat')
                     ->get()
                     ->result();
@@ -35,6 +35,7 @@ class Category extends CI_Model
         return $this->db->from('cats')
                         ->join('authors', 'authors.cat_id = cats.id')
                         ->where('cat', $cat)
+                        ->where('cat !=', '')
                         ->count_all_results();
     }
 
