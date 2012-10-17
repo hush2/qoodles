@@ -34,14 +34,9 @@ blockquote small {
     text-align: right;
 }
 
-.main_quote {
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
 .main_quote blockquote {
-    padding: 40px 0px 25px 0px;
-    font: 180% bold georgia, serif;
+    padding: 30px 0px 25px 0px;
+    font: 240% bold georgia, serif;
     border: none;
     color: #888;
 }

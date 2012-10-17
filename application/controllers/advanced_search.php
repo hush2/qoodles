@@ -42,12 +42,11 @@ class Advanced_Search extends MY_Controller
             $any   = trim($this->input->post('any'));
             $none  = trim($this->input->post('none'));
 
-            $this->session->set_userdata(array(
-                                'all'   => $all,
-                                'exact' => $exact,
-                                'any'   => $any,
-                                'none'  => $none,
-            ));
+            $this->session->set_userdata(array('all'   => $all,
+                                               'exact' => $exact,
+                                               'any'   => $any,
+                                               'none'  => $none)
+            );
         }
         else
         {
@@ -56,9 +55,9 @@ class Advanced_Search extends MY_Controller
             $any   = $this->session->userdata('any');
             $none  = $this->session->userdata('none');
         }
-
+        
         $text = '';
-
+        
         if (!empty($all))
         {
             $all = explode(' ', $all);
@@ -94,8 +93,7 @@ class Advanced_Search extends MY_Controller
                           ? "Found " . number_format($matches) . " matches for $match_text"
                           : ($text ? "No match found for $match_text" : 'Nothing to search');
                           
-        $data['pages']  = $this->pagination->create(
-                            '/advanced_search/quotes/', $matches, $count, 3);
+        $data['pages']  = $this->pagination->create('/advanced_search/quotes/', $matches, $count, 3);
         $data['text']   = $text;
 
         $this->load_view('result_quotes', $data);

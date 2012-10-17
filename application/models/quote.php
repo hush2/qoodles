@@ -4,7 +4,7 @@
 
 class Quote extends CI_Model
 {   
-    public function find_random($length, $count)
+    public function find_random($length='', $count=1)
     {
         $where_length = "WHERE LENGTH(quote) ";
 

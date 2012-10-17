@@ -13,17 +13,17 @@
             if ($quote->nat && $quote->cat)
             {
                 $link  = "natcat/$quote->nat/$quote->cat";
-                $title = "$quote->nat $quote->cat";
+                $title = "{$quote->nat} {$quote->cat}";
             }
             elseif ($quote->nat && !$quote->cat)
             {
-                $link  = "nat/$quote->nat";
-                $title = "$quote->nat";
+                $link  = "nat/{$quote->nat}";
+                $title = "{$quote->nat}";
             }
             elseif (!$quote->nat && $quote->cat)
             {
-                $link  = "cat/$quote->cat";
-                $title = "$quote->cat";
+                $link  = "cat/{$quote->cat}";
+                $title = "{$quote->cat}";
             }
             ?>
             <?= anchor("/search/$link", $title, 'class="natcat"') ?></td>
