@@ -1,6 +1,10 @@
 # Qoodles #
 
-Live site at <http://qoodles.phpfogapp.com/>
+A site with lots of quotations :-)
+
+## Lite Site ##
+
+http://qoodles.phpfogapp.com
 
 ## Credits ##
 
