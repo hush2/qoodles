@@ -24,7 +24,7 @@
             <input type='hidden' name='submit' value='submit'/>
         <?= form_close() ?>
 
-        <li><a id='advanced' href='/advanced_search'><div class='nav_adv'>Advanced <br>Search</div></a></li>
+        <li><a id='advanced' href=<?= base_url() . 'advanced_search'?>><div class='nav_adv'>Advanced <br>Search</div></a></li>
         <li><?= anchor('/about', 'About') ?></li>
     </ul>
 

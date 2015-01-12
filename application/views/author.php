@@ -2,12 +2,12 @@
     <h1><?= $author->name ?></h1>
     <h3><?= "$author->nat $author->cat" ?></h3>
     <div class='dob_dod'>
-        <? if (!empty($dob)): ?>
+        <?php if (!empty($dob)): ?>
             <p>Born: <?= $dob ?></p>
-        <? endif ?>
-        <? if (!empty($dod)): ?>
+        <?php endif ?>
+        <?php if (!empty($dod)): ?>
             <p>Died: <?= $dod ?></p>
-        <? endif ?>
+        <?php endif ?>
     </div>
     <br/>
 </div>

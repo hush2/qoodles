@@ -3,7 +3,7 @@
 <div class='row'>
     <div class='span8'>
 
-    <? foreach ($quotes as $quote): ?>
+    <?php foreach ($quotes as $quote): ?>
     <blockquote>
         <p> <?= $quote->quote ?><p>
         <small>
