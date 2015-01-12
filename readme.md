@@ -4,7 +4,7 @@ A site with lots of quotations :-)
 
 ## Lite Site ##
 
-http://qoodles.phpfogapp.com
+http://hush2.alwaysdata.net/qoodles/public/
 
 ## Credits ##
 
