@@ -19,8 +19,8 @@
  *
  */
 
-    //define('ENVIRONMENT', getenv('APPLICATION_ENV') ? : 'production');
-    define('ENVIRONMENT', 'development');
+    define('ENVIRONMENT', getenv('SERVER_ENVIRONMENT') == 'development' ? 'development' : 'production');
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

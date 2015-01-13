@@ -49,10 +49,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 // MYSQL_* are PHPFog env variables. 
-$db['default']['hostname'] = getenv('MYSQL_DB_HOST')  ?: 'localhost';
-$db['default']['username'] = getenv('MYSQL_USERNAME') ?: 'root' ;
-$db['default']['password'] = getenv('MYSQL_PASSWORD') ?: 'beer' ;
-$db['default']['database'] = getenv('MYSQL_DB_NAME')  ?: 'qoodles';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'beer';
+$db['default']['database'] = 'qoodles';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
